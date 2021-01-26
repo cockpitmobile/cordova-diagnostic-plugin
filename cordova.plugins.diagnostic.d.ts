@@ -1104,6 +1104,15 @@ interface Diagnostic {
         successCallback: (status: string) => void,
         errorCallback: (error: string) => void
     ) => void;
+
+    /**
+     * ANDROID ONLY
+     * Opens the battery saver settings for the device
+     */
+    openBatterySettings?: (
+        successCallback: () => void,
+        errorCallback: (error: string) => void
+    ) => void;
 }
 
 interface CordovaPlugins {

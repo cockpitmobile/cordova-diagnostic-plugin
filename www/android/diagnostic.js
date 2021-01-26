@@ -190,6 +190,10 @@ var Diagnostic = (function(){
             []);
     };
 
+    Diagnostic.openBatterySettings = function(successCallback, errorCallback) {
+        return cordova.exec(successCallback, errorCallback, 'Diagnostic', 'openBatterySettings', []);
+    };
+
     /**
      * Returns the current authorisation status for a given permission.
      * Note: this is intended for Android 6 / API 23 and above. Calling on Android 5 / API 22 and below will always return GRANTED status as permissions are already granted at installation time.

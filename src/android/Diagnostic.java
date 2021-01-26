@@ -248,6 +248,8 @@ public class Diagnostic extends CordovaPlugin{
                 this.restart(args);
             } else if(action.equals("getArchitecture")) {
                 callbackContext.success(getCPUArchitecture());
+            } else if(action.equals("openBatterySettings")) {
+                callbackContext.success(openBatterySettings());
             } else {
                 handleError("Invalid action");
                 return false;
@@ -291,6 +293,12 @@ public class Diagnostic extends CordovaPlugin{
     public void switchToMobileDataSettings() {
         logDebug("Switch to Mobile Data Settings");
         Intent settingsIntent = new Intent(Settings.ACTION_DATA_ROAMING_SETTINGS);
+        cordova.getActivity().startActivity(settingsIntent);
+    }
+
+    public void openBatterySettings() {
+        logDebug("Opening battery saver settings");
+        Intent settingsIntent = new Intent(Settings.ACTION_BATTERY_SAVER_SETTINGS);
         cordova.getActivity().startActivity(settingsIntent);
     }
 
