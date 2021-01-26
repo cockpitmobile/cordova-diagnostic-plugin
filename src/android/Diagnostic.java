@@ -249,7 +249,8 @@ public class Diagnostic extends CordovaPlugin{
             } else if(action.equals("getArchitecture")) {
                 callbackContext.success(getCPUArchitecture());
             } else if(action.equals("openBatterySettings")) {
-                callbackContext.success(openBatterySettings());
+                openBatterySettings();
+                callbackContext.success();
             } else {
                 handleError("Invalid action");
                 return false;
